@@ -17,3 +17,22 @@ to
 
 ## Thoughts
 What if a node is NULL? A NULL has no children, so how to iterate deeper into the tree?
+```c++
+// Attempt
+// class Solution {
+// public:
+    
+//     void swapNodes(*leftNode, *rightNode) {
+//         *temp = *leftNode;
+//         *leftNode = *rightNode;
+//         *rightNode = temp;
+//         return;
+//     }
+    
+//     TreeNode* invertTree(TreeNode* root) {
+//         if (root == NULL) 
+//             return
+//         invertTree(root->left, )
+//     }
+// };
+```
