@@ -36,3 +36,22 @@ What if a node is NULL? A NULL has no children, so how to iterate deeper into th
 //     }
 // };
 ```
+Solution:
+```c++
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if(!root || (!root->left && !root->right)) return root;
+        invertTree(root->left);
+        invertTree(root->right);
+        swap(&root->left, &root->right);
+        return root;
+    }
+
+    void swap(TreeNode** l, TreeNode** r) {
+        TreeNode* t = *l;
+        *l = *r;
+        *r = t;
+    }
+};
+```
