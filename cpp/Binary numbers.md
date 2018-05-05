@@ -1,9 +1,9 @@
 ## Representation of negative number
-+5 = 0000000000000101
-        V
-        V flip
-        V
--5 = 1111111111111011
++5 = 0000000000000101  
+        V  
+        V flip  
+        V  
+-5 = 1111111111111011  
 
 A two's complement is a very efficient way of storing negatives, as it follows all the rules that a negative of a number should have:
 
@@ -20,4 +20,5 @@ for example :
 `(x-1) = 11 (1011)`     [It will toggle every bit upto kth bit. here k = 3 (from right.)]
 `~ (x-1) = 4 (0100)`    [every bit right of the k is 0. So &ing it with x will set every bit to it's right to 0, Also every bit to it's left is either 0 or 1, but different from x, so &ing this will make them as 0]
 
-eventually x & ~(x-1) = 4. (power of 2, only 1 set bit.)
+eventually x & ~(x-1) = 4. (power of 2, only 1 set bit.)   
+--> quicker way: x &= -x
