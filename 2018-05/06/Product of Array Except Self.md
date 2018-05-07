@@ -12,7 +12,16 @@ Could you solve it with constant space complexity? (Note: The output array does 
 class Solution {
 public:
   vector<int> productExceptSelf(vector<int>& nums) {
-      
+    int vectSize = nums.size();
+    vector<int> result(vectSize, 1);
+    for (int i = 1; i < vectSize; ++i) {
+      result[i] = result[i - 1] * nums[i - 1];
+    };
+    for (int i = vectSize - 1, right=1; i>=0; --i) { // to exclude the last element in the vector
+      result[i] *= right; 
+      right *= nums[i]; 
+    };
+    return result;
   }
 };
 ```
