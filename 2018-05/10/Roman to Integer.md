@@ -45,3 +45,56 @@ Input: "MCMXCIV"
 Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 ```
+
+**Solution**
+```python
+class Solution:
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        pairs = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+            "IV": 4,
+            "IX": 9,
+            "XL": 40,
+            "XC": 90,
+            "CD": 400,
+            "CM": 900
+        }
+        # a = "X"
+        # b = "L"
+        # if a+b in pairs:
+        #     print(pairs[a+b])
+        # combos = ["IV", "IX", "XL", "XC", "CD", "CM"]
+        chars = list(s)
+        accu = 0
+        def calculate(list):
+            if (len(list) == 0):
+                return
+            right = list.pop()
+            left = ""
+            if (len(list) > 0):
+                left = list.pop()
+            # print(left, right)
+            if left+right in pairs:
+                # print(pairs[left+right])
+                accu += pairs[left+right]
+            else:
+                list.append(left)
+                # print(pairs[right])
+                accu += pairs[right]
+            # print(accu)
+            calculate(list)
+        # for i, char in enumerate(chars):
+        #     print(i, char)
+        calculate(chars)
+        return result
+```
