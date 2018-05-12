@@ -51,6 +51,9 @@ class Solution:
         def compareNodes(a, b):
             if (a == None and b == None):
                 return True
+            """One of the nodes is None, and the other is a valid node"""
+            elif ((a and not b) or (not a and b)):
+                return False
             else:
                 if (a.val == b.val):
                     return compareNodes(a.left, b.left) and compareNodes(a.right, b.right)
