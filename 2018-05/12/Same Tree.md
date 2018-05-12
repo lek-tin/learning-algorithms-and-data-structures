@@ -32,3 +32,29 @@ Input:     1         1
 
 Output: false
 ```
+**Solution**
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isSameTree(self, p, q):
+        """
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        """
+        def compareNodes(a, b):
+            if (a == None and b == None):
+                return True
+            else:
+                if (a.val == b.val):
+                    return compareNodes(a.left, b.left) and compareNodes(a.right, b.right)
+                else:
+                    return False
+        return compareNodes(p, q)
+```
