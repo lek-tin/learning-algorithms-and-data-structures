@@ -25,3 +25,22 @@ Input: [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 ```
+**Solution**:
+```python
+class Solution:
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        def makeProfit(pirceList, price = None, profit = 0):
+            if (len(pirceList) == 0):
+                return profit
+            prevVal = pirceList.pop()
+            if (price and price > prevVal):
+                if (price > prevVal):
+                    profit += price - prevVal
+            return makeProfit(pirceList, prevVal, profit)
+            
+        return makeProfit(prices)
+```
