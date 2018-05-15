@@ -1,4 +1,4 @@
-Given a collection of distinct integers, return all possible permutations.
+Given a collection of **distinct** integers, return all possible permutations.
 
 **Example**:
 ```
@@ -12,4 +12,26 @@ Output:
   [3,1,2],
   [3,2,1]
 ]
+```
+
+**Solution:**
+```python
+class Solution:
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
+        self.insertOneNum(nums, 0)
+        
+    def insertOneNum(self, baseList, num):
+        result = []
+        if (type(baseList) is list and len(baseList) > 0):
+            for i in range(len(baseList) + 1):
+                baseList.insert(i, num)
+                print(baseList)
+                result.append(baseList)
+                print(result)
+                baseList.pop(i)
 ```
