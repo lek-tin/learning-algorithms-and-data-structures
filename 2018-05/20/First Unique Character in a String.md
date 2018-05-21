@@ -22,4 +22,19 @@ class Solution(object):
         index=[s.index(l) for l in letters if s.count(l) == 1]
         print(index)
         return min(index) if len(index) > 0 else -1
+    def firstUniqChar_2(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        unique = s
+        counter = 0
+        while unique:
+            if len(s) == 1:
+                return 0
+            elif unique[0] in unique[1::]:
+                unique = unique.replace(unique[0], "")
+            else:
+                return s.find(unique[0])
+        return -1
 ```
