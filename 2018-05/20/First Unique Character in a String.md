@@ -13,16 +13,13 @@ return 2.
 **Solution:**
 ```python
 class Solution(object):
-    def firstUniqChar(self, s):
+    def firstUniqChar_1(self, s):
         """
         :type s: str
         :rtype: int
         """
-        unique = s
-        while unique:
-            if unique[0] in unique[1::]:
-                unique = unique.replace(unique[0], "")
-            else:
-                return s.find(unique[0])
-        return -1
+        letters='abcdefghijklmnopqrstuvwxyz'
+        index=[s.index(l) for l in letters if s.count(l) == 1]
+        print(index)
+        return min(index) if len(index) > 0 else -1
 ```
