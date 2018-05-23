@@ -45,3 +45,32 @@ Input: 1994
 Output: "MCMXCIV"
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 ```
+**Solution:**
+```python
+class Solution(object):
+    def intToRoman(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
+        # s = ""
+        # while (num > 10):
+        #     if (num > 1000):
+        #         num = 1000
+        #         s = "M" * 
+        s = "M" * (num // 1000)
+        print(s)
+        s += "CM" if num % 1000 >= 900 else "D" *((num % 1000) // 500)
+        print(s)
+        s += "CD" if num % 500 >= 400 and s[-2:] != "CM" else "C" * ((num % 500) // 100)  if num % 500 < 400 else ""
+        print(s)
+        s += "XC" if num % 100 >= 90 else "L" * ((num % 100) // 50)
+        print(s)
+        s += "XL" if num % 50 >= 40 and s[-2:] != "XC" else "X" * ((num % 50) // 10)  if num % 50 < 40 else ""
+        print(s)
+        s += "IX" if num % 10 >= 9 else "V" * ((num % 10) // 5)
+        print(s)
+        s += "IV" if num % 5 >= 4 and s[-2:] != "IX" else "I" * ((num % 5) // 1) if num % 5 < 4 else ""
+        print(s)
+        return s
+```
