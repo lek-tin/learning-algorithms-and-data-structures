@@ -16,3 +16,32 @@ Output: 3
 ```
 **Follow up:**
 What if the BST is modified (insert/delete operations) often and you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?
+
+**Solution:**
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def __init__(self):
+        self.k, self.res = 0, None
+        
+    def kthSmallest(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: int
+        """
+        if self.k < k and root.left:
+            self.kthSmallest(root.left, k)
+        self.k += 1
+        if self.k == k:
+            self.res = root.val
+        if self.k < k and root.right:
+            self.kthSmallest(root.right, k)
+        return self.res
+ ```
