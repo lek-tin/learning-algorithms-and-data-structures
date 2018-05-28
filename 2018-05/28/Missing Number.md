@@ -16,7 +16,7 @@ Your algorithm should run in linear runtime complexity. Could you implement it u
 **Solution:**
 ```python
 class Solution:
-    def missingNumber(self, nums):
+    def missingNumber_XOR(self, nums):
         """
         :type nums: List[int]
         :rtype: int
@@ -24,4 +24,15 @@ class Solution:
         expected_sum = len(nums)*(len(nums)+1)//2
         actual_sum = sum(nums)
         return expected_sum - actual_sum
+    def missingNumber_GAUSS(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    missing = len(nums)
+        print(missing)
+        for i, num in enumerate(nums):
+            print(i, num)
+            missing ^= i ^ num
+        return missing
 ```
