@@ -44,4 +44,18 @@ class Solution:
         if self.k < k and root.right:
             self.kthSmallest(root.right, k)
         return self.res
+    def kthSmallest_2(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: int
+        """
+        sorted = self.inOrder(root)
+        return sorted[k-1]
+        
+    def inOrder(self, root):
+        if root is None:
+            return  []
+        else:
+            return self.inOrder(root.left) + [root.val] + self.inOrder(root.right)
  ```
