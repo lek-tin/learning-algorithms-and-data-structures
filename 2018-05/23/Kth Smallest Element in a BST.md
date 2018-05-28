@@ -58,4 +58,22 @@ class Solution:
             return  []
         else:
             return self.inOrder(root.left) + [root.val] + self.inOrder(root.right)
+            
+    def kthSmallest_3(self, root, k):
+        """
+        :type root: TreeNode
+        :type k: int
+        :rtype: int
+        """
+        stack, node = [], root
+        while stack or node:
+            while node:
+                stack.append(node)
+                node = node.left
+            node = stack.pop()
+            if k == 1:
+                return node.val
+            else:
+                k -= 1
+            node = node.right
  ```
