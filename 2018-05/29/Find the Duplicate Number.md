@@ -35,8 +35,8 @@ class Solution:
 
 Time complexity : `O(nlgn)`
 
-The sort invocation costs `O(nlgn)` time in Python and Java, so it dominates the subsequent linear scan.
+The `sort` invocation costs `O(nlgn)` time in Python and Java, so it dominates the subsequent linear scan.
 
 Space complexity : `O(1)` (or `O(n)`)
 
-Here, we sort nums in place, so the memory footprint is constant. If we cannot modify the input array, then we must allocate linear space for a copy of nums and sort that instead.
+Here, we sort `nums` in place, so the memory footprint is constant. If we cannot modify the input array, then we must allocate linear space for a copy of `nums` and sort that instead.
