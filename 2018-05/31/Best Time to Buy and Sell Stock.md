@@ -26,18 +26,18 @@ class Solution:
         :type prices: List[int]
         :rtype: int
         """
-        timeRange = len(prices)
-        profit = 0
-        buyDay, sellDay = 0, 0
-        def makeProfit(pirceList, profit):
-            for i in range(timeRange):
-                for j in range(timeRange):
-                    newSellDay = timeRange - j - 1
-                    if (newSellDay > i):
-                        newProfit = prices[newSellDay] - prices[i]
-                        if (newProfit > profit):
-                            profit = newProfit
+        listLength = len(prices)
+        profit, minPrice, maxPrice = 0, 0, 0
+        def makeProfit(pirceList, profit, minPrice, maxPrice):
+            for i in range(listLength):
+                if i == 0:
+                    minPrice = prices[i]
+                else:
+                    if (prices[i] < minPrice):
+                        minPrice = prices[i]
+                    if (prices[i] - minPrice > profit):
+                        profit = prices[i] - minPrice
             return profit              
-                    
-        return makeProfit(prices, profit)
+        
+        return makeProfit(prices, profit, minPrice, maxPrice)
 ```
