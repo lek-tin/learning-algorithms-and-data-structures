@@ -16,7 +16,7 @@ You **must** use only constant, `O(1)` extra space.
 Your runtime complexity should be less than `O(n2)`.
 There is only one duplicate number in the array, but it could be repeated more than once.
 
-**SolutiON:*
+**Solution:*
 ```python
 class Solution:
     def findDuplicate(self, nums):
@@ -31,3 +31,12 @@ class Solution:
             if newNums[i] == newNums[i-1]:
                 return newNums[i]
 ```
+**Complexity Analysis:**
+
+Time complexity : `O(nlgn)`
+
+The sort invocation costs `O(nlgn)` time in Python and Java, so it dominates the subsequent linear scan.
+
+Space complexity : `O(1)` (or `O(n)`)
+
+Here, we sort nums in place, so the memory footprint is constant. If we cannot modify the input array, then we must allocate linear space for a copy of nums and sort that instead.
