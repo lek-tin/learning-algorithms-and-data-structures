@@ -24,3 +24,22 @@ From the top-left corner, there are a total of 3 ways to reach the bottom-right 
 Input: m = 7, n = 3
 Output: 28
 ```
+**Solution:**
+```python
+class Solution:
+    def uniquePaths(self, m, n):
+        """
+        :type m: int
+        :type n: int
+        :rtype: int
+        """
+        grid = [[0 for x in range(m)] for y in range(n)]
+        for row in range(n):
+            for col in range(m):
+                if row == 0 or col == 0:
+                    grid[row][col] = 1
+                else:
+                    grid[row][col] = grid[row][col-1] + grid[row-1][col]        
+        print(grid[n-1][m-1])
+        return(grid[n-1][m-1])
+```
