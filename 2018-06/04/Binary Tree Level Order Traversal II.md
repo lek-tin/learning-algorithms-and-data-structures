@@ -36,11 +36,11 @@ class Solution:
         def traverse(root, level):
             if root != None:
                 if len(res) == level:
-                    res.append([])
-                res[level].append(root.val)
+                    res.insert(0, [])
+                res[len(res) - 1 - level].append(root.val)
                 traverse(root.left, level+1)
                 traverse(root.right, level+1)
                 
         traverse(root, 0)
-        return list(reversed(res))
+        return res
 ```
