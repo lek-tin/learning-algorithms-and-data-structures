@@ -22,6 +22,7 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
+        # https://www.cnblogs.com/ganganloveu/p/4110996.html
         # https://blog.csdn.net/karen0310/article/details/78226261
         ones, twos = 0, 0
         for _, num in enumerate(nums):  
