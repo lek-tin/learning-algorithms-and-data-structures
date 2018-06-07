@@ -29,5 +29,5 @@ class Solution:
         return res
 ```
 **Notes:**
-`G(i) = i ^ (i/2)` 
-`i / 2` == `1 >> 1`    
+`G(i) = i ^ (i/2)`    
+`i / 2` == `1 >> 1`       
