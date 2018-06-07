@@ -31,5 +31,5 @@ class Solution:
 **Notes:**   
 ```
 G(i) = i ^ (i/2)
-i / 2` == `1 >> 1
+i / 2 == 1 >> 1
 ```
