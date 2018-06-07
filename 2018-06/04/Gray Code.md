@@ -28,6 +28,6 @@ class Solution:
             res.append(num ^ (num >> 1))
         return res
 ```
-**Notes:**
+**Notes:**   
 `G(i) = i ^ (i/2)`    
 `i / 2` == `1 >> 1`       
