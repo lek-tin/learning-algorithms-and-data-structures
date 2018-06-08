@@ -40,3 +40,21 @@ rotate the input matrix in-place such that it becomes:
   [16, 7,10,11]
 ]
 ```
+**Solution:**
+```python
+class Solution:
+    def rotate(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: void Do not return anything, modify matrix in-place instead.
+        """
+        size = len(matrix)
+        maxIndex = size - 1
+        for row in range(size//2):
+            for col in range((size+1)//2):
+                temp = matrix[maxIndex-col][row]
+                matrix[maxIndex-col][row] = matrix[maxIndex-row][maxIndex-col]
+                matrix[maxIndex-row][maxIndex-col] = matrix[col][maxIndex-row]
+                matrix[col][maxIndex-row] = matrix[row][col]
+                matrix[row][col] = temp
+```
