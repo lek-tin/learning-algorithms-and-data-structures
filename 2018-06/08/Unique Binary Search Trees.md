@@ -21,15 +21,10 @@ class Solution:
         :type n: int
         :rtype: int
         """
-        # n = 3
-        # root: 1  left:0  right: 2
-        # root: 2  left:1  right: 1
-        # root: 3  left:2  right: 0
         res = [1]
-        print(res)
         for i in range(1, n+1):
             for j in range(i):
-                res.append(res[j] * res[i-j-1])
+                res.append(0)
+                res[i] += res[j] * res[i - j - 1]
         return res[n]
-        
 ```
