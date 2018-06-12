@@ -25,3 +25,34 @@ A solution set is:
   [3,5]
 ]
 ```
+**Solution:**
+```python
+class Solution:
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        res = []
+        def add(candidates, target, hehe, i, sum):
+            ans = list(hehe)
+            # print("res:", res, "; ans:", ans, "; i:", i, "; sum", sum)
+            if(sum>target):
+                return
+            if(sum==target):
+                res.append(ans) 
+                return
+            if(i>=len(candidates)):
+                return
+            # recursive cases
+            # Try current index again. so sum increases by a[i] and as that element can be choosen for unlimited times
+            ans.append(candidates[i])
+            add(candidates, target, ans, i, sum+candidates[i])
+            # backtracking
+            ans.pop()
+            # excluding the current element
+            add(candidates, target, ans, i+1, sum)
+        add(candidates,target, [], 0, 0)
+        return res
+```
