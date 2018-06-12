@@ -35,8 +35,9 @@ class Solution:
         :rtype: List[List[int]]
         """
         res = []
-        def add(candidates, target, hehe, i, sum):
-            ans = list(hehe)
+        def add(candidates, target, tempAns, i, sum):
+            # clone a copy of tempAns
+            ans = list(tempAns)
             # print("res:", res, "; ans:", ans, "; i:", i, "; sum", sum)
             if(sum>target):
                 return
