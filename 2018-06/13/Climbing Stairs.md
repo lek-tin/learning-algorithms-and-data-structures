@@ -21,3 +21,23 @@ Explanation: There are three ways to climb to the top.
 2. 1 step + 2 steps
 3. 2 steps + 1 step
 ```
+**Solution:**
+```python
+class Solution:
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        # The result is observes Fibonacci sequence
+        s1, s2 = 1, 2
+        if n == 1:
+            return s1
+        elif n == 2:
+            return s2
+        else:
+            while n > 2:
+                s1, s2 = s2, s1+s2
+                n -= 1
+        return s2
+```
