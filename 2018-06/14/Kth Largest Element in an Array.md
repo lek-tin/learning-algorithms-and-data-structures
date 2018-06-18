@@ -15,6 +15,7 @@ You may assume `k` is always valid, `1 ≤ k ≤ array's length`.
 **Solution:**
 ```ptyhon
 class Solution:
+    # failed solution: memory exceeded
     def findKthLargest(self, nums, k):
         """
         :type nums: List[int]
