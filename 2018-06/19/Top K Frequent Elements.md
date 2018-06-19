@@ -28,3 +28,5 @@ class Solution:
                 bucket.append(key)
         return bucket
 ```
+**Going further:**
+`topKCounts = quickSelected(...)` can improve the time complexity from `O(NlogN)` to `O(N)`
