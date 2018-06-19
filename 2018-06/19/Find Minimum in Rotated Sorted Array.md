@@ -16,3 +16,24 @@ Output: 1
 Input: [4,5,6,7,0,1,2]
 Output: 0
 ```
+**Solution:**
+```python
+class Solution:
+    def findMin(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) == 1:
+            return nums[0]
+        if len(nums) == 2:
+            return min(nums[0], nums[1])
+        if nums[0] < nums[len(nums)-1]:
+            return nums[0]
+        if nums[len(nums)-2] > nums[len(nums)-1]:
+            return nums[len(nums)-1]
+        
+        for i in range(1, len(nums)-1):
+            if nums[i] < nums[i-1] and nums[i] < nums[i+1]:
+                return nums[i]
+```
