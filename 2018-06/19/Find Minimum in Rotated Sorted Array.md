@@ -36,4 +36,16 @@ class Solution:
         for i in range(1, len(nums)-1):
             if nums[i] < nums[i-1] and nums[i] < nums[i+1]:
                 return nums[i]
+    def bsFindMin(self, nums):
+        while l < r:
+                m = (l + r) // 2
+                if nums[m] > nums[m - 1] and nums[m] > nums[m + 1]:
+                    return nums[m + 1]
+                if nums[m] < nums[m - 1] and nums[m] < nums[m + 1]:
+                    return nums[m]
+                if nums[m] >= nums[r]:
+                    l = m
+                else:
+                    r = m
+            return nums[0]
 ```
