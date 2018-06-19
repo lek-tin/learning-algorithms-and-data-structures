@@ -15,32 +15,39 @@ You may assume `k` is always valid, `1 ≤ k ≤ array's length`.
 **Solution:**
 ```ptyhon
 class Solution:
-    # failed solution: memory exceeded
     def findKthLargest(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: int
-        """
-        def sort(array):
-            less = []
-            equal = []
-            greater = []
+        if (nums == None or len(nums) == 0):
+            return 0
 
-            if len(array) > 1:
-                pivot = array[0]
-                for x in array:
-                    if x < pivot:
-                        less.append(x)
-                    if x == pivot:
-                        equal.append(x)
-                    if x > pivot:
-                        greater.append(x)
-                # + operator joins lists
-                return sort(less)+equal+sort(greater)  
-            # Note that you want equal ^^^^^ not pivot
-            # You need to handle the part at the end of the recursion - when you only have one element in your array, just return the array.    
-            else:
-                return array
-        return sort(nums)[len(nums) - k]
+        left, right = 0, len(nums) - 1
+        
+        def swap(nums, i, j):
+            temp = nums[i]
+            nums[i] = nums[j]
+            nums[j] = temp
+        
+        def partition(nums, left, right):
+            pivot = nums[left]
+            l = left + 1
+            r = right
+            while l <= r:
+                if nums[l] < pivot and nums[r] > pivot:
+                    swap(nums, l, r)
+                    l += 1
+                    r -= 1
+                if nums[l] >= pivot:
+                    l += 1
+                if nums[r] <= pivot:
+                    r -= 1
+            swap(nums, left, r)
+            return r
+
+        while True:
+            pos = partition(nums, left, right)
+            if pos + 1 == k:
+                return nums[pos]
+            elif pos + 1 > k:
+                right = pos - 1
+            elif pos + 1 < k:
+                left = pos + 1
 ```        
