@@ -44,4 +44,5 @@ class Solution:
             res = max(res, sum)
         return res
 ```    
-            
+**Going further:**
+[Kadane’s algorithm](https://medium.com/@marcellamaki/finding-the-maximum-contiguous-sum-in-an-array-and-kadanes-algorithm-e303cd4eb98c)
