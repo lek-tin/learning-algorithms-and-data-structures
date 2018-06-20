@@ -17,3 +17,17 @@ Explanation: 2**4 = 16
 Input: 218
 Output: false
 ```
+**Solution:**
+```python
+class Solution:
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n == 0:
+            return False
+        if n & (n - 1) == 0:
+            return True
+        return False
+```
