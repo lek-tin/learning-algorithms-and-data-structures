@@ -14,5 +14,15 @@ Explanation: Integer 128 has binary representation 00000000000000000000000010000
 ```
 **Solution:**
 ```python
-
+class Solution(object):
+    def hammingWeight(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        numOfBits = 0
+        while n > 0:
+            numOfBits += n & 1
+            n = n >> 1
+        return numOfBits
 ```
