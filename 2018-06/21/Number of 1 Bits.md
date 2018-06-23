@@ -12,3 +12,7 @@ Input: 128
 Output: 1
 Explanation: Integer 128 has binary representation 00000000000000000000000010000000
 ```
+**Solution:**
+```python
+
+```
