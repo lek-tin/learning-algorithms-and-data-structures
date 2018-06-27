@@ -22,3 +22,31 @@ Output: 4
 Input: [1,3,5,6], 0
 Output: 0
 ```
+**Solution:**
+```python
+class Solution(object):
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        startPos, endPos = 0, len(nums) - 1
+        # check this condition first, e.g., [1]
+        if target <= nums[0]:
+            return 0
+
+        if target > nums[endPos]:
+            return len(nums)
+
+        while True:
+            midPos = (startPos + endPos) // 2
+            if nums[midPos] == target:
+                return midPos
+            if nums[startPos] < target and nums[endPos] >= target and (startPos + 1) == endPos:
+                return startPos + 1
+            if nums[midPos] < target:
+                startPos = midPos
+            if nums[midPos] > target:
+                endPos = midPos
+```
