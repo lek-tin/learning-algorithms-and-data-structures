@@ -18,7 +18,7 @@ Given the `Employee` table, write a SQL query that finds out employees who earn 
 +----------+
 ```
 **Solution:**
-`WHERE`:   
+`WHERE`:     
 ```sql
 SELECT
     *
@@ -30,7 +30,7 @@ WHERE
         AND a.Salary > b.Salary
 ;
 ```
-`JOIN` - more efficient:   
+`JOIN` - more efficient:     
 ```sql
 SELECT
      a.NAME AS Employee
