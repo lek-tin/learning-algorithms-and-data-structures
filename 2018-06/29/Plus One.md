@@ -30,14 +30,16 @@ class Solution(object):
             return [1]
     
         while pos > -1:
-                
+            # iterate backwards
+		    # if the current digit is less than 9, plus one then exit
             if digits[pos] != 9:
                 digits[pos] += 1
                 break    
+			# if the current digit is equal to 9, set the value to 0, and continue
             else:
                 digits[pos] = 0
             pos -= 1
-            
+        # check if the first element in the list is 0, if yes, insert 1 to the beginning of the list.
         if digits[0] == 0:
             digits.insert(0, 1)
             
