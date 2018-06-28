@@ -17,3 +17,25 @@ Given the `Employee` table, write a SQL query that finds out employees who earn 
 | Joe      |
 +----------+
 ```
+**Solution:**
+`WHERE`:   
+```sql
+SELECT
+    *
+FROM
+    Employee AS a,
+    Employee AS b
+WHERE
+    a.ManagerId = b.Id
+        AND a.Salary > b.Salary
+;
+```
+`JOIN` - more efficient:   
+```sql
+SELECT
+     a.NAME AS Employee
+FROM Employee AS a JOIN Employee AS b
+     ON a.ManagerId = b.Id
+     AND a.Salary > b.Salary
+;
+```
