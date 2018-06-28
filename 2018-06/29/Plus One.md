@@ -16,3 +16,30 @@ Input: [4,3,2,1]
 Output: [4,3,2,2]
 Explanation: The array represents the integer 4321.
 ```
+**Solution:**
+```python
+class Solution(object):
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        pos = len(digits) - 1
+        
+        if digits == []:
+            return [1]
+    
+        while pos > -1:
+                
+            if digits[pos] != 9:
+                digits[pos] += 1
+                break    
+            else:
+                digits[pos] = 0
+            pos -= 1
+            
+        if digits[0] == 0:
+            digits.insert(0, 1)
+            
+        return digits
+```
