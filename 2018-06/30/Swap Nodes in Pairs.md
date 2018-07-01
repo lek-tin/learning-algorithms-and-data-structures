@@ -22,25 +22,22 @@ class Solution(object):
         :rtype: ListNode
         """
         
-        if head == None or head.next == None:
-            return head
-
-        prev = None
-        p1 = head
-        p2 = head.next
-        p3 = head.next.next
-        head = p2
-        while p1 and p1.next:
-            p2.next = p1
-            p1.next = p3
-            if prev:
-                prev.next = p2
-            prev = p1
-            p1 = p3
-            if p3:
-                p2 = p3.next
-            if p2:
-                p3 = p2.next
-
-        return head
+        root = ListNode(0)
+        root.next = head
+        nextNode = root
+        # while new start is not None
+        while nextNode.next:
+            print(nextNode.next.val)
+            # the new latter element being swapped
+            if nextNode.next.next:
+                # reference: when nextNode changes, temp changes TOO
+                temp = nextNode.next
+                # exchange 3 node
+                nextNode.next = nextNode.next.next
+                temp.next = temp.next.next
+                nextNode.next.next = temp
+                nextNode = temp
+            else:
+                break
+        return root.next
 ```
