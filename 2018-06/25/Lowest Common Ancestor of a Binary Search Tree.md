@@ -28,3 +28,38 @@ Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of 
 **Note:**
 - All of the nodes' values will be unique.
 - p and q are different and both values will exist in the BST.
+**Solution:**
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        # Edge/Condition
+        if not root:
+            return None
+        if root == p or root == q:
+            return root
+        
+        # Divide
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        
+        # Conquer
+        if left and right:
+            return root
+        if not left:
+            return right
+        if not right:
+            return left
+```
