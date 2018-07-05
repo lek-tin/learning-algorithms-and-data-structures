@@ -21,3 +21,31 @@ Explanation: Your function can return either index number 1 where the peak eleme
 ```
 **Note:**
 Your solution should be in logarithmic complexity.
+
+**Solution:**
+```python
+class Solution(object):
+    def findPeakElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if nums == None and len(nums) == 0:
+            return None
+        
+        peak = 0
+        
+        for i in range(len(nums)):
+            if nums[i] > nums[peak]:
+                if i == 0: 
+                    if nums[i] > nums[i+1]:
+                        peak = i
+                elif i == (len(nums)-1):
+                    if nums[i] > nums[i-1]:
+                        peak = i
+                else:
+                    if nums[i-1] < nums[i] and nums[i] > nums[i+1]:
+                        peak = i
+        
+        return peak
+```
