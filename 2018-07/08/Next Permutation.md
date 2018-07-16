@@ -16,26 +16,46 @@ class Solution:
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
         """
+        if nums == None or len(nums) == 0:
+            return
+
+        firstSmall = -1
         i = len(nums) - 2
-        while i >= 0 and nums[i+1] <= nums[i]:
+        while i >= 0:
+            # Find the first element that is greater than its next element
+            if nums[i] < nums[i+1]:
+                firstSmall = i
+                break
             i -= 1
-        if i >= 0:
-            j = len(nums) - 1
-            while j >= 0 and nums[j] <= nums[i]:
-                j -= 1
-            self.swap(nums, i, j)
-        self.reverse(nums, i + 1)
-
-    def reverse(self, nums, start):
-        i = start
+    
+        # When the list is all the way, descending
+        if firstSmall == -1:
+            # Reverse the while list
+            self.reverseTillEnd(nums, 0)
+            return
+        # Initiate a firstLarge element
+        firstLarge = -1
         j = len(nums) - 1
-        while i < j:
-            self.swap(nums, i, j)
-            i += 1
+        while j > firstSmall:
+            if nums[j] > nums[firstLarge]:
+                firstLarge = j
+                break
             j -= 1
-
-    def swap(self, nums, i, j):
-        temp = nums[i]
-        nums[i] = nums[j]
-        nums[j] = temp
+        # Swap firstSmall and firstLarge
+        self.swap(nums, firstSmall, firstLarge)
+        # Then reverse the part of the list that comes after firstSmall
+        self.reverseTillEnd(nums, firstSmall+1)
+    
+    # Define the reverse function
+    def reverseTillEnd(self, nums, start):
+        end= len(nums) - 1
+        while start < end:
+            self.swap(nums, start, end)
+            start += 1
+            end -= 1
+    # define the swap function
+    def swap(self, nums, a, b):
+        temp = nums[a]
+        nums[a] = nums[b]
+        nums[b] = temp
 ```
