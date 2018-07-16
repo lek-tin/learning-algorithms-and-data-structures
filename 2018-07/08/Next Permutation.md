@@ -33,14 +33,17 @@ class Solution:
             # Reverse the while list
             self.reverseTillEnd(nums, 0)
             return
+        
         # Initiate a firstLarge element
         firstLarge = -1
         j = len(nums) - 1
         while j > firstSmall:
-            if nums[j] > nums[firstLarge]:
+            # Find the first element that is on the right to firstSmall that is bigger than firstSmall
+            if nums[j] > nums[firstSmall]:
                 firstLarge = j
                 break
             j -= 1
+            
         # Swap firstSmall and firstLarge
         self.swap(nums, firstSmall, firstLarge)
         # Then reverse the part of the list that comes after firstSmall
@@ -53,6 +56,7 @@ class Solution:
             self.swap(nums, start, end)
             start += 1
             end -= 1
+            
     # define the swap function
     def swap(self, nums, a, b):
         temp = nums[a]
