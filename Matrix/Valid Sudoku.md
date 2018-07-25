@@ -47,3 +47,37 @@ Explanation: Same as Example 1, except with the 5 in the top left corner being
 - Only the filled cells need to be validated according to the mentioned rules.
 - The given board contain only digits `1-9` and the character `'.'`.
 - The given board size is always `9x9`.
+**Solution:**  
+Brutal force method
+```python
+class Solution:
+    def isValidSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: bool
+        """
+        size = 9
+        for i in range(size):
+            rowDict = {}
+            colDict = {}
+            cubeDict = {}
+            for j in range(size):
+                if board[i][j] is not '.' and rowDict.get(board[i][j]):
+                    return False
+                rowDict[board[i][j]] = True
+                if board[j][i] is not '.' and colDict.get(board[j][i]):
+                    return False
+                colDict[board[j][i]] = True 
+                
+                rowIndex = 3 * (i // 3) + j // 3
+                colIndex = 3 * (i % 3)  + j % 3
+                if board[rowIndex][colIndex] is not '.' and cubeDict.get(board[rowIndex][colIndex]):
+                    return False
+                cubeDict[board[rowIndex][colIndex]] = True
+        
+        return True
+```
+Clever method
+```python
+
+```
