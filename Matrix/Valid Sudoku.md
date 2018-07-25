@@ -78,7 +78,41 @@ class Solution:
         
         return True
 ```
-Clever method
+Decoupled method
 ```python
-
+class Solution:
+    def isValidSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: bool
+        """
+        size = 9
+        for i in range(size):
+            for j in range(size):
+                if board[i][j] == '.':
+                    continue
+                if not self.isValid(board, i, j):
+                    return False
+        return True
+    
+    def isValid(self, board, i, j):
+        for row in range(len(board)):
+            if row == i:
+                continue
+            if board[row][j] == board[i][j]:
+                return False
+            
+        for col in range(len(board)):
+            if col == j:
+                continue
+            if board[i][col] == board[i][j]:
+                return False
+            
+        for row in range((i // 3) * 3, (i // 3 + 1) * 3):
+            for col in range((j // 3) * 3, (j // 3 + 1) * 3):
+                if row == i and col == j:
+                    continue
+                if board[row][col] == board[i][j]:
+                    return False
+        return True
 ```
