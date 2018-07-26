@@ -19,3 +19,43 @@ A sudoku puzzle...
 The given board contain only digits `1-9` and the character `'.'`.
 You may assume that the given Sudoku puzzle will have a single unique solution.
 The given board size is always `9x9`.
+
+**Solution:**
+```python
+class Solution:
+    def solveSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: void Do not return anything, modify board in-place instead.
+        """
+        if board == None or len(board) == 0:
+            return
+        self.solve(board)
+        
+    def solve(self, board):
+        size = 9
+        for row in range(size):
+            for col in range(size):
+                if board[row][col] == '.':
+                    for char in list('123456789'):
+                        if self.isValid(board, row, col, char):
+                            board[row][col] = char
+                            if self.solve(board):
+                                return True
+                            else:
+                                board[row][col] = '.'
+                    return False
+        return True    
+    
+    def isValid(self, board, row, col, char):
+        size = 9
+        for i in range(size):
+            if board[i][col] == char:
+                return False
+            if board[row][i] == char:
+                return False
+            tempCubeSlot = board[3 * (row // 3) + i // 3][3 * (col // 3)  + i % 3]
+            if tempCubeSlot != '.' and tempCubeSlot == char:
+                return False
+        return True
+```
