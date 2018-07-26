@@ -40,6 +40,7 @@ class Solution:
                     for char in list('123456789'):
                         if self.isValid(board, row, col, char):
                             board[row][col] = char
+                            # dfs: continue to keep solving the board
                             if self.solve(board):
                                 return True
                             else:
