@@ -16,6 +16,7 @@ Output: "56088"
 - Both `num1` and `num2` do not contain any leading zero, except the number 0 itself.
 - You **must not use any built-in BigInteger library** or **convert the inputs to integer** directly.
 **Solution:**
+#1
 ```python
 class Solution:
     def multiply(self, num1, num2):
@@ -41,4 +42,10 @@ class Solution:
                 product = product + (num_1 * 10**i * num_2 * 10**j)
                 
         return str(product)
+```
+#2: second method
+no * operation. Create an array with the correct length and calculate each item, iteratively.
+``` 
+   👇
+[x, x, x, x, x, x]
 ```
