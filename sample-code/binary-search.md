@@ -18,9 +18,8 @@ while (left + 1 < right) {
     }
 }
 
-if (target < nums[left]) return left;
-
-return right;
+// target does not exist in nums
+return -1;
 ```
 
 ## Find first occurance in an array of numbers with duplicates
