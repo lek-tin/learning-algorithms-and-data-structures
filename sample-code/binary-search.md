@@ -5,11 +5,16 @@
 int left = 0, right = n - 1;
 while (left + 1 < right) {
     int mid = left + (right - left) / 2;
-    
-    if (target > preSums[mid]) {
+
+    if (nums[mid] == target) {
+        // Found the target element
+        return mid;
+    } else if (nums[mid] < target) {
+        // Adjust left boundary
         left = mid + 1;
     } else {
-        right = mid;
+        // Adjust right boundary
+        right = mid - 1;
     }
 }
 
