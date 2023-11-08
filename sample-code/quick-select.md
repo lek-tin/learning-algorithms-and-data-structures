@@ -31,6 +31,7 @@ public class QuickSelect {
 
     private static int partition(int[] arr, int left, int right) {
         int randomPivotIndex = left + new Random().nextInt(right - left + 1);
+        // randomPivot is now at right
         swap(arr, randomPivotIndex, right);
         int pivotValue = arr[right];
 
