@@ -26,12 +26,9 @@ return -1;
 ```java
 ```
 
-
-## Leetcode problems
-
-
 ## Find last occurance in an array of numbers with duplicates
 ```java
 ```
 
-https://leetcode.com/problems/random-pick-with-weight/description/
+## Leetcode problems
+- https://leetcode.com/problems/random-pick-with-weight/description/
