@@ -3,8 +3,15 @@
 Topological sorting is a linear ordering of the vertices of a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before v in the ordering. Here's a Java implementation of topological sort using depth-first search (DFS):
 
 ## DFS with recursion
-## DFS with stack
+```java
+boolean[] visiting
+boolean[] visited
+```
 
+## BFS with queue
+
+
+## DFS with stack
 ```java
 import java.util.ArrayList;
 import java.util.Stack;
@@ -65,8 +72,6 @@ public class TopologicalSort {
     }
 }
 ```
-
-## BFS with recursion
 
 ## Problems
 - https://leetcode.com/problems/course-schedule
