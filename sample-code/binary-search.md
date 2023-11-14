@@ -30,5 +30,8 @@ return -1;
 ```java
 ```
 
+## Leftmost/rightmost
+
 ## Leetcode problems
 - https://leetcode.com/problems/random-pick-with-weight/description/
+- https://leetcode.com/problems/cutting-ribbons/
