@@ -42,7 +42,7 @@ class Trie {
             }
             node = node.children[index];
         }
-        return node != null && node.isEndOfWord;
+        return node.isEndOfWord;
     }
 
     public boolean startsWith(String prefix) {
