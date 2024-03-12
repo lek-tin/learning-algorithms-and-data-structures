@@ -1,0 +1,6 @@
+# Trie
+
+## char array
+
+## hashmap
+
